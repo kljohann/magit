@@ -655,9 +655,9 @@ made to the repository outside of Magit.
   This command refreshes the current buffer if its major mode derives
   from ~magit-mode~ as well as the corresponding status buffer.
 
-  If the option ~magit-revert-buffers~ calls for it, then it also
-  reverts all unmodified buffers that visit files being tracked in the
-  current repository.
+  If ~magit-auto-revert-mode~ calls for it, then it also reverts all
+  unmodified buffers that visit files being tracked in the current
+  repository.
 
 - Key: G, magit-refresh-all
 
@@ -666,7 +666,7 @@ made to the repository outside of Magit.
   being tracked in the current repository.
 
   The file-visiting buffers are always reverted, even if
-  ~magit-revert-buffers~ is nil.
+  ~magit-auto-revert-mode~ is disabled.
 
 - User Option: magit-refresh-buffer-hook
 
@@ -4129,14 +4129,6 @@ for that hook.
 
   Hook run at the end of ~git-commit-setup~.
 
-- Function: magit-revert-buffers &optional force
-
-  Revert unmodified file-visiting buffers of the current repository.
-
-  If either ~magit-revert-buffers~ is non-nil and ~inhibit-magit-revert~
-  is nil, or if optional FORCE is non-nil, then revert all unmodified
-  buffers that visit files being tracked in the current repository.
-
 - Function: git-commit-save-message
 
   Save the current buffer content to the commit message ring.
@@ -7210,7 +7202,7 @@ And now for the asynchronous variants.
   current when this function was called (if it is a Magit buffer and
   still alive), as well as the respective Magit status buffer.
   Unmodified buffers visiting files that are tracked in the current
-  repository are reverted if ~magit-revert-buffers~ is non-nil.
+  repository are reverted if ~magit-auto-revert-mode~ is enabled.
 
 - Function: magit-run-git-with-editor &rest args
 
@@ -7241,7 +7233,7 @@ And now for the asynchronous variants.
   current when this function was called (if it is a Magit buffer and
   still alive), as well as the respective Magit status buffer.
   Unmodified buffers visiting files that are tracked in the current
-  repository are reverted if ~magit-revert-buffers~ is non-nil.
+  repository are reverted if ~magit-auto-revert-mode~ is enabled.
 
 - Function: magit-start-process &rest args
 
@@ -7262,8 +7254,8 @@ And now for the asynchronous variants.
   buffer that was current when ~magit-start-process~ was called (if it
   is a Magit buffer and still alive), as well as the respective Magit
   status buffer.  Unmodified buffers visiting files that are tracked
-  in the current repository are reverted if ~magit-revert-buffers~ is
-  non-nil.
+  in the current repository are reverted if ~magit-auto-revert-mode~
+  is enabled.
 
 - Variable: magit-this-process
 
