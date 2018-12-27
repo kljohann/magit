@@ -46,7 +46,7 @@
 This option is provided by `magit', which also redefines
 `auto-revert-buffers' to respect it.  Magit users who do not turn
 on the local mode `auto-revert-mode' themselves, are best served
-by setting the value to `magit-auto-revert-repository-buffers-p'.
+by setting the value to `magit-auto-revert-repository-buffer-p'.
 
 However the default is nil, to not disturb users who do use the
 local mode directly.  If you experience delays when running Magit
